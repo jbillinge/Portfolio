@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>James Billinge | Gameplay Programmer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+
+<body>
+
+    <header data-aos="fade-down">
+        <div class="header-overlay">
+            <h1>James Billinge</h1>
+            <p>Gameplay Programmer | Unity | C# | Unreal Engine 5</p>
+        </div>
+    </header>
+
+    <section class="about" data-aos="fade-up">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Hi, I'm James, an aspiring game developer living in England. I began my game development journey in high school,
+                creating a tower defense game in Unity. Since then, I have studied Game Design at Leeds Beckett University
+                and am due to graduate in July. This portfolio showcases my work using Unity and Unreal Engine 5.
+            </p>
+        </div>
+    </section>
+
+    <section class="projects" data-aos="fade-up">
+        <div class="container">
+            <h2>Projects</h2>
+
+            <div class="project" data-aos="zoom-in-up" data-aos-delay="100">
+                <h3>Untitled WIP Project</h3>
+                <img src="Screenshot1.jpg" alt="Screenshot of Untitled WIP project">
+                <p>This is my final university group project: a fixed-camera exploration and third-person shooter game. I worked closely with one other developer, who handled the inventory system and camera swapping. We used assets from Mixamo and the Unity Asset Store to focus on programming.</p>
+                <p><strong>My contributions:</strong></p>
+                <ul>
+                    <li>Camera-relative player movement</li>
+                    <li>Enemy AI finite state machine</li>
+                    <li>Combat system</li>
+                    <li>UI target indicator</li>
+                    <li>UI reload indicator</li>
+                    <li>Level design</li>
+                </ul>
+                <a href="https://github.com/jbillinge/Final-Project" target="_blank" class="btn">View Code on GitHub</a>
+            </div>
+
+            <div class="project" data-aos="zoom-in-up" data-aos-delay="100">
+                <h3>UE5 RPG</h3>
+                <img src="Screenshot2.jpg" alt="Screenshot of UE5 RPG project">
+                <p>This university project was for a module called "Game Systems". I built a prototype top-down RPG in Unreal Engine 5 using Blueprints. It features melee combat, an inventory and shop system, and basic health and menu systems.</p>
+                <button class="btn" onclick="toggleCode('unrealScripts')">View Key Blueprints</button>
+
+                <div id="unrealScripts" class="scripts" style="display: none;">
+                     <h4>Blueprints Overview</h4>
+                     <p>Below are a few key Blueprints with screenshots and logic breakdowns.</p>
+
+                     <h4>Shop Logic</h4>
+                     <p>The shop works using a collider and a number of custom events such as GetItemFromShop, AddCurrency etc. It is opened using the E key and disables all movement and calls a custom event
+                     OpenShop which triggers the UI window to open. Since the game was only a prototype, I limited the number of weapons to two, each having their own designated inventory slot. Within the shop UI, 
+                     I used a series of buttons to call custom events that active specific abilities. These affect the combat system, and the shop of couse ties into the weapon and inventory system.
+                     <img src="UnrealSc2.jpg" alt="Shop Logic Blueprint">
+                     <img src="UnrealSc15.jpg" alt="Shop Logic Blueprint Part 2">
+
+                     <h4>Inventory System</h4>
+                     <p>As I mentioned before, the inventory only has two weapons to deal with. However, I ensured scalability using arrays so further weapons and items can easily be integrated into the system. 
+                     Each weapon has its own specific stats, such as damage and the radius of the hit detection.</p>
+                     <img src="UnrealSc3.jpg" alt="Inventory Blueprint">
+
+                     <h4>Death Logic and Screen Loading</h4>
+                     <p>I kept the custom event "Die" very rudimentary, utilising widgets to load a new screen which contains a respawn button to ensure a gameplay loop, an end game button aswell as displaying stats such as enemies killed, 
+                     which I made a persistent variable which a custom event sets via a custom Game Instance called GlobalVars_Instance. This is also scalable as persistent are also passed through a custom event "PassEndGameVars", 
+                     meaning other stats can be added in the future.</p>
+
+                     <img src="UnrealSc6.jpg" alt="Death Logic Blueprint">
+
+                     <h4>Hit Detection</h4>
+                     <p>For my hit detection, I used the classic method of drawing a sphere trace along the shaft of the sword during the attack animation. This is done using multiple notify ticks during the animation montage for both
+                     the player and the enemies, to ensure that hits are detected at all points of the animations. The logic is very similar for both the player and the enemies the only differences being different sockets 
+                     (where the spheres are drawn).And also for the player, one of the abilities is a splash damage affect, which is done simply by checking if it is purchased, and if it is then the radius of the hit Detection
+                     is increased drastically, but all other logic remains identical.</p>
+                     <img src="UnrealSc9.jpg" alt="Hit Detection Blueprint">
+                     <img src="UnrealSc11.jpg" alt="Hit Detection Continuation">
+                     <img src="UnrealSc12.jpg" alt="Hit Detection Continuation 2">
+
+                     <h4>Enemy Controller and artifical intelligence</h4>
+                     <p>The enemy controller is again built up of a number of custom events, nearly all of them combat related as the AI is handled via a behaviour tree. The take damage function is very similar to that of the player,
+                     using a near identical hit detection function. When an enemy is killed, the spawn a coin which can be picked up by the player using a collider, which then calls the custom event AddCurrency, allowing the player
+                     to then purchase items from the shop as a reward for killing enemies. Also, instead of having an animation for the enemy death, I decided to use a ragdoll using a custom event which just disables the physics of the
+                     enemies mesh. For the AI, I set the enemies pawn to use a custom AI blueprint class that calls a behaviour tree. This behaviour tree then runs a sequence of behaviour tree tasks in the order of: Get the targets location
+                     (the player), move to the player and then attack. The attack task calls upon the custom event "Attack" in the enemy controller which triggers the animation to play, in turn trigger the notify ticks that control hit detection.</p>
+                     <img src="UnrealSc13.jpg" alt="Enemy Controller Blueprint">
+                     <img src="UnrealSc17.jpg" alt="Enemy Controller Blueprint">
+                     <img src="UnrealSc16.jpg" alt="Enemy Controller Blueprint">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" data-aos="fade-up">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:jbillingeldn@gmail.com">jbillingeldn@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/james-billinge-13a744359/" target="_blank">Connect with me</a></p>
+            <p>GitHub: <a href="https://github.com/jbillinge" target="_blank">jbillinge</a></p>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function toggleCode(id) {
+            const section = document.getElementById(id);
+            section.style.display = (section.style.display === "none" || section.style.display === "")
+                ? "block"
+                : "none";
+        }
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+            if (img.complete) {
+                img.classList.add('loaded');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
