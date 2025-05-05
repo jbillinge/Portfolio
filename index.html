@@ -6,6 +6,59 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header-media {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .header-media img,
+        .header-media video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .header-media .active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .header-overlay {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .header-overlay h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .header-overlay p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,9 +66,9 @@
 <header data-aos="fade-down">
     <div class="header-media">
         <img src="collage.jpg" class="header-item active" alt="Collage">
-        <video class="header-item" src="ProjectClip1.mp4" muted></video>
-        <video class="header-item" src="ProjectClip2.mp4" muted></video>
-        <video class="header-item" src="ProjectClip3.mp4" muted></video>
+        <video class="header-item" src="ProjectClip1.mp4" muted playsinline></video>
+        <video class="header-item" src="ProjectClip2.mp4" muted playsinline></video>
+        <video class="header-item" src="ProjectClip3.mp4" muted playsinline></video>
     </div>
     <div class="header-overlay">
         <h1>James Billinge</h1>
@@ -131,34 +184,32 @@
         let currentIndex = 0;
 
         function showItem(index) {
-            headerItems.forEach(item => item.classList.remove('active'));
-            headerItems[index].classList.add('active');
-        }
+            headerItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.tagName.toLowerCase() === 'video') {
+                    item.pause();
+                    item.currentTime = 0;
+                }
+            });
 
-        function setupCycle() {
-            const currentItem = headerItems[currentIndex];
-            showItem(currentIndex);
-
-            // Prepare for next item
-            currentIndex = (currentIndex + 1) % headerItems.length;
-            const nextItem = headerItems[currentIndex];
+            const currentItem = headerItems[index];
+            currentItem.classList.add('active');
 
             if (currentItem.tagName.toLowerCase() === 'img') {
-                setTimeout(setupCycle, 5000); // show collage for 5 seconds
-            } else if (currentItem.tagName.toLowerCase() === 'video') {
-                currentItem.currentTime = 0;
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % headerItems.length;
+                    showItem(currentIndex);
+                }, 5000);
+            } else {
                 currentItem.play();
-
-                const onEnded = () => {
-                    currentItem.removeEventListener('ended', onEnded);
-                    setupCycle();
+                currentItem.onended = () => {
+                    currentIndex = (currentIndex + 1) % headerItems.length;
+                    showItem(currentIndex);
                 };
-
-                currentItem.addEventListener('ended', onEnded);
             }
         }
 
-        setupCycle();
+        showItem(currentIndex);
     });
 </script>
 
