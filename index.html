@@ -8,17 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-
-
 <body>
 
-  <header data-aos="fade-down">
+<header data-aos="fade-down">
     <div class="header-media">
         <img src="collage.jpg" class="header-item active" alt="Collage">
-        <video class="header-item" src="video1.mp4" muted loop></video>
-        <video class="header-item" src="video2.mp4" muted loop></video>
-        <video class="header-item" src="video3.mp4" muted loop></video>
-        <video class="header-item" src="video4.mp4" muted loop></video>
+        <video class="header-item" src="ProjectClip1.mp4" muted></video>
+        <video class="header-item" src="ProjectClip2.mp4" muted></video>
+        <video class="header-item" src="ProjectClip3.mp4" muted></video>
     </div>
     <div class="header-overlay">
         <h1>James Billinge</h1>
@@ -26,46 +23,45 @@
     </div>
 </header>
 
+<section class="about" data-aos="fade-up">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm James, an aspiring game developer living in England. I began my game development journey in high school,
+            creating a tower defense game in Unity. Since then, I have studied Game Design at Leeds Beckett University
+            and am due to graduate in July. This portfolio showcases my work using Unity and Unreal Engine 5.
+        </p>
+    </div>
+</section>
 
-    <section class="about" data-aos="fade-up">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>
-                Hi, I'm James, an aspiring game developer living in England. I began my game development journey in high school,
-                creating a tower defense game in Unity. Since then, I have studied Game Design at Leeds Beckett University
-                and am due to graduate in July. This portfolio showcases my work using Unity and Unreal Engine 5.
-            </p>
+<section class="projects" data-aos="fade-up">
+    <div class="container">
+        <h2>Projects</h2>
+
+        <div class="project" data-aos="zoom-in-up" data-aos-delay="100">
+            <h3>Untitled WIP Project</h3>
+            <img src="Screenshot1.jpg" alt="Screenshot of Untitled WIP project">
+            <p>This is my final university group project: a fixed-camera exploration and third-person shooter game. I worked closely with one other developer, who handled the inventory system and camera swapping. We used assets from Mixamo and the Unity Asset Store to focus on programming.</p>
+            <p><strong>My contributions:</strong></p>
+            <ul>
+                <li>Camera-relative player movement</li>
+                <li>Enemy AI finite state machine</li>
+                <li>Combat system</li>
+                <li>UI target indicator</li>
+                <li>UI reload indicator</li>
+                <li>Level design</li>
+            </ul>
+            <a href="https://github.com/jbillinge/Final-Project" target="_blank" class="btn">View Code on GitHub</a>
         </div>
-    </section>
 
-    <section class="projects" data-aos="fade-up">
-        <div class="container">
-            <h2>Projects</h2>
+        <div class="project" data-aos="zoom-in-up" data-aos-delay="100">
+            <h3>UE5 RPG</h3>
+            <img src="Screenshot2.jpg" alt="Screenshot of UE5 RPG project">
+            <p>This university project was for a module called "Game Systems". I built a prototype top-down RPG in Unreal Engine 5 using Blueprints. It features melee combat, an inventory and shop system, and basic health and menu systems.</p>
+            <button class="btn" onclick="toggleCode('unrealScripts')">View Key Blueprints</button>
 
-            <div class="project" data-aos="zoom-in-up" data-aos-delay="100">
-                <h3>Untitled WIP Project</h3>
-                <img src="Screenshot1.jpg" alt="Screenshot of Untitled WIP project">
-                <p>This is my final university group project: a fixed-camera exploration and third-person shooter game. I worked closely with one other developer, who handled the inventory system and camera swapping. We used assets from Mixamo and the Unity Asset Store to focus on programming.</p>
-                <p><strong>My contributions:</strong></p>
-                <ul>
-                    <li>Camera-relative player movement</li>
-                    <li>Enemy AI finite state machine</li>
-                    <li>Combat system</li>
-                    <li>UI target indicator</li>
-                    <li>UI reload indicator</li>
-                    <li>Level design</li>
-                </ul>
-                <a href="https://github.com/jbillinge/Final-Project" target="_blank" class="btn">View Code on GitHub</a>
-            </div>
-
-            <div class="project" data-aos="zoom-in-up" data-aos-delay="100">
-                <h3>UE5 RPG</h3>
-                <img src="Screenshot2.jpg" alt="Screenshot of UE5 RPG project">
-                <p>This university project was for a module called "Game Systems". I built a prototype top-down RPG in Unreal Engine 5 using Blueprints. It features melee combat, an inventory and shop system, and basic health and menu systems.</p>
-                <button class="btn" onclick="toggleCode('unrealScripts')">View Key Blueprints</button>
-
-                <div id="unrealScripts" class="scripts" style="display: none;">
-                     <h4>Blueprints Overview</h4>
+            <div id="unrealScripts" class="scripts" style="display: none;">
+                <h4>Blueprints Overview</h4>
                      <p>Below are a few key Blueprints with screenshots and logic breakdowns.</p>
 
                      <h4>Shop Logic</h4>
@@ -105,42 +101,66 @@
                      <img src="UnrealSc13.jpg" alt="Enemy Controller Blueprint">
                      <img src="UnrealSc17.jpg" alt="Enemy Controller Blueprint">
                      <img src="UnrealSc16.jpg" alt="Enemy Controller Blueprint">
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="contact" data-aos="fade-up">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:jbillingeldn@gmail.com">jbillingeldn@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/james-billinge-13a744359/" target="_blank">Connect with me</a></p>
-            <p>GitHub: <a href="https://github.com/jbillinge" target="_blank">jbillinge</a></p>
-        </div>
-    </section>
+<section class="contact" data-aos="fade-up">
+    <div class="container">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:jbillingeldn@gmail.com">jbillingeldn@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/james-billinge-13a744359/" target="_blank">Connect with me</a></p>
+        <p>GitHub: <a href="https://github.com/jbillinge" target="_blank">jbillinge</a></p>
+    </div>
+</section>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
 
-        function toggleCode(id) {
-            const section = document.getElementById(id);
-            section.style.display = (section.style.display === "none" || section.style.display === "")
-                ? "block"
-                : "none";
-        }
-    </script>
-    <script>
+    function toggleCode(id) {
+        const section = document.getElementById(id);
+        section.style.display = (section.style.display === "none" || section.style.display === "")
+            ? "block"
+            : "none";
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', () => {
-                img.classList.add('loaded');
-            });
-            if (img.complete) {
-                img.classList.add('loaded');
+        const headerItems = document.querySelectorAll('.header-item');
+        let currentIndex = 0;
+
+        function showItem(index) {
+            headerItems.forEach(item => item.classList.remove('active'));
+            headerItems[index].classList.add('active');
+        }
+
+        function setupCycle() {
+            const currentItem = headerItems[currentIndex];
+            showItem(currentIndex);
+
+            // Prepare for next item
+            currentIndex = (currentIndex + 1) % headerItems.length;
+            const nextItem = headerItems[currentIndex];
+
+            if (currentItem.tagName.toLowerCase() === 'img') {
+                setTimeout(setupCycle, 5000); // show collage for 5 seconds
+            } else if (currentItem.tagName.toLowerCase() === 'video') {
+                currentItem.currentTime = 0;
+                currentItem.play();
+
+                const onEnded = () => {
+                    currentItem.removeEventListener('ended', onEnded);
+                    setupCycle();
+                };
+
+                currentItem.addEventListener('ended', onEnded);
             }
-        });
+        }
+
+        setupCycle();
     });
-    </script>
+</script>
+
 </body>
 </html>
