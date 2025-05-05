@@ -123,7 +123,7 @@ section h2::after {
     object-fit: cover;
     border-radius: 10px;
     margin: 20px 0;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
 }
